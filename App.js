@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import firebase from 'firebase';
-import PushNotification from 'react-native-push-notification';
-import PushController from './PushController'
+// import PushNotification from 'react-native-push-notification';
+// import PushController from './PushController'
 
 var firebaseConfig = {
   apiKey: "AIzaSyCq89rpk8CsXk_eAy_-WR7Dyo7kai4SdfA",
@@ -62,6 +62,9 @@ export default class App extends Component {
       var list2 = list1.filter(this.myFunct)
       // console.log("Data: ", list2)
       // console.log("Last state: ", list2.slice(-1)[0]['state'])
+      if(list2.slice(-1)[0]['state'] === 2){
+        alert('SiMonster 1 full')
+      }
       this.setState({ 
         chartData1: list2,
         color1:this.getColor(list2)
@@ -76,18 +79,18 @@ export default class App extends Component {
     this.getData(theChosenOne);
   }
 
-  sendNotification() {
-    PushNotification.localNotification({
-      message: 'state 2 capacity',
-      importance: "high",
-      priority: "high",
-      vibrate: true,
-    });
-  }
+  // sendNotification() {
+  //   PushNotification.localNotification({
+  //     message: 'state 2 capacity',
+  //     importance: "high",
+  //     priority: "high",
+  //     vibrate: true,
+  //   });
+  // }
 
   _onPressButton(){
-    // alert('you tapped the button')
-    this.sendNotification
+    alert('you tapped the button')
+    // this.sendNotification
   }
 
   render() {
