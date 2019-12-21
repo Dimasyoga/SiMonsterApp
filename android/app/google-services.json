@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "902434644807",
+    "firebase_url": "https://si-monster.firebaseio.com",
+    "project_id": "si-monster",
+    "storage_bucket": "si-monster.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902434644807:android:5cd34bc45ced2b296ba262",
+        "android_client_info": {
+          "package_name": "com.simonster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902434644807-5k0ba122t6hr96ubiioade34rc5q5gmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAXyFHKjvYxGOSRSxYPUWqFOIwideS4jY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902434644807-5k0ba122t6hr96ubiioade34rc5q5gmk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
