@@ -12,6 +12,8 @@
       "ios",
       "android",
       "web"
-    ]
+    ],
+    "description": "SiMonster App",
+    "githubUrl": "https://github.com/Dimasyoga/SiMonsterApp"
   }
 }

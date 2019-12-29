@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, TouchableHighlight, Modal } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, Modal } from 'react-native';
 import firebase from 'firebase';
-import Popup from 'reactjs-popup'
 
 var firebaseConfig = {
   apiKey: "AIzaSyCq89rpk8CsXk_eAy_-WR7Dyo7kai4SdfA",
@@ -22,8 +21,8 @@ export default class App extends Component {
     this.state = {
       chartData1:[],
       chartData2:[],
+      color0:'#FFFFFF',
       color1:'#FFFFFF',
-      color2:'#FFFFFF',
       modal1Visible:false,
       modal2Visible:false
     }
@@ -42,6 +41,9 @@ export default class App extends Component {
   }
 
   getColor(data){
+    
+  }
+  getColor(data){
     if(data.slice(-1)[0]['state'] === 0){
       return '#75F735'
     }else if(data.slice(-1)[0]['state'] === 1){
@@ -49,9 +51,9 @@ export default class App extends Component {
     }else if(data.slice(-1)[0]['state'] === 2){
       return '#F74F35'
     }else{
-      return '#000000'
+      return '#ffffff'
     }
-  }
+}
 
   getData() {
     const rootRef = firebase.database().ref();
@@ -76,7 +78,7 @@ export default class App extends Component {
       && list1.length > 0){
         this.setState({ 
           chartData1: list1,
-          color1:this.getColor(list1),
+          color0:this.getColor(list1),
         }, () => {
           console.log("getData1 success")
         });
@@ -88,7 +90,7 @@ export default class App extends Component {
       && list2.length > 0){
         this.setState({ 
           chartData2: list2,
-          color2:this.getColor(list2),
+          color1:this.getColor(list2),
         }, () => {
           console.log("getData2 success")
         });
@@ -117,23 +119,26 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.screen}>
+        
         <View style={styles.header}>
           <Text style={styles.welcome}>SiMonster-App</Text>
         </View>
+
         <View style={styles.container}>
           <View style={styles.but}>
+            <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
+              <View style={styles.button,{backgroundColor:this.state.color0}}>
+                <Text style={styles.buttonText}>SiMonster 0</Text>
+              </View>
+            </TouchableHighlight>
             <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
               <View style={styles.button,{backgroundColor:this.state.color1}}>
                 <Text style={styles.buttonText}>SiMonster 1</Text>
               </View>
             </TouchableHighlight>
-            <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
-              <View style={styles.button,{backgroundColor:this.state.color2}}>
-                <Text style={styles.buttonText}>SiMonster 2</Text>
-              </View>
-            </TouchableHighlight>
           </View>
         </View>
+
         <Modal
           animationType="slide"
           transparent={false}
@@ -173,6 +178,7 @@ export default class App extends Component {
             </View>
           </View>
         </Modal>
+
       </View>
     );
   }
